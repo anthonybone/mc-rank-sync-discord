@@ -30,8 +30,8 @@ logging:
   # Enable debug logging
   debug: false
   
-  # Log API requests and responses
-  log-api-calls: true
+  # Log API requests and responses (WARNING: may log player data, disable in production)
+  log-api-calls: false
 
 # Messages
 messages:

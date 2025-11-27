@@ -255,13 +255,15 @@ function cleanupExpiredCodes() {
 
 /**
  * Generate a random 6-character alphanumeric code
+ * Uses cryptographically secure random number generation
  */
 function generateCode() {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const crypto = require('crypto');
     let code = '';
-    const randomBytes = require('crypto').randomBytes(6);
     for (let i = 0; i < 6; i++) {
-        code += chars[randomBytes[i] % chars.length];
+        // Use randomInt for unbiased random selection
+        code += chars[crypto.randomInt(0, chars.length)];
     }
     return code;
 }

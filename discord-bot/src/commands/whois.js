@@ -38,10 +38,6 @@ module.exports = {
                     { name: 'Linked Since', value: new Date(link.linked_at).toLocaleString(), inline: true }
                 );
 
-            // Try to get Minecraft head as thumbnail
-            const headUrl = `https://mc-heads.net/avatar/${link.mc_uuid}/64`;
-            embed.setImage(headUrl);
-
             logger.debug(`Whois lookup for ${user.tag}: ${link.mc_name}`);
 
             await interaction.reply({ embeds: [embed] });
