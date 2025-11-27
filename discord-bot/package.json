@@ -1,0 +1,30 @@
+{
+  "name": "mc-rank-sync-discord-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Minecraft Rank Sync - receives rank updates and manages Discord roles",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "lint": "eslint src/",
+    "test": "node --test src/**/*.test.js"
+  },
+  "keywords": [
+    "discord",
+    "minecraft",
+    "luckperms",
+    "rank-sync"
+  ],
+  "author": "MCRankSync Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "winston": "^3.11.0"
+  }
+}
