@@ -6,6 +6,7 @@ node_modules/
 
 # Database
 data/
+test-data/
 *.db
 *.sqlite
 *.sqlite3
