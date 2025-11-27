@@ -1,8 +1,28 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const router = express.Router();
 const logger = require('../utils/logger');
 const database = require('../database/database');
 const roleManager = require('./roleManager');
+
+/**
+ * Rate limiter - limits requests per IP
+ * 100 requests per 15 minutes for authenticated endpoints
+ */
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: { error: 'Too many requests, please try again later.' },
+    standardHeaders: true,
+    legacyHeaders: false,
+    handler: (req, res) => {
+        logger.warn(`Rate limit exceeded for ${req.ip}`);
+        res.status(429).json({ error: 'Too many requests, please try again later.' });
+    }
+});
+
+// Apply rate limiting to all routes in this router
+router.use(apiLimiter);
 
 /**
  * Authentication middleware - verifies API token
