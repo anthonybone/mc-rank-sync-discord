@@ -1,0 +1,46 @@
+# MCRankSync Configuration
+# This plugin syncs Minecraft ranks to Discord roles via REST API
+
+# API Configuration
+api:
+  # The base URL of your Discord bot's REST API
+  # Example: http://localhost:3000
+  endpoint: "http://localhost:3000"
+  
+  # The API token for authentication
+  # This must match the token in your Discord bot's configuration
+  token: "your-api-token-here"
+  
+  # Connection timeout in milliseconds
+  timeout: 5000
+
+# Sync Settings
+sync:
+  # Send rank updates when player joins
+  on-join: true
+  
+  # Send rank updates when LuckPerms group changes
+  on-rank-change: true
+  
+  # Only sync players who have linked their Discord account
+  require-linked: true
+
+# Logging
+logging:
+  # Enable debug logging
+  debug: false
+  
+  # Log API requests and responses (WARNING: may log player data, disable in production)
+  log-api-calls: false
+
+# Messages
+messages:
+  prefix: "&8[&bMCRankSync&8] &r"
+  link-success: "&aYour account has been linked successfully!"
+  link-fail: "&cFailed to link your account. Please check your link code."
+  unlink-success: "&aYour account has been unlinked."
+  unlink-fail: "&cFailed to unlink your account."
+  no-permission: "&cYou don't have permission to use this command."
+  reload-success: "&aConfiguration reloaded successfully!"
+  status-linked: "&aYour Discord account is linked."
+  status-not-linked: "&cYour Discord account is not linked. Use /mcranksync link <code>"

@@ -1,0 +1,20 @@
+name: MCRankSync
+version: ${project.version}
+main: com.mcranksync.MCRankSync
+api-version: '1.20'
+description: Syncs Minecraft ranks to Discord roles via REST API
+author: MCRankSync Team
+depend:
+  - LuckPerms
+commands:
+  mcranksync:
+    description: MCRankSync commands
+    usage: /<command> [reload|link|unlink|status]
+    aliases: [mrs]
+permissions:
+  mcranksync.admin:
+    description: Allows access to MCRankSync admin commands
+    default: op
+  mcranksync.link:
+    description: Allows players to link their Discord account
+    default: true
